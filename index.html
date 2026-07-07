@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SPMB SMP Negeri 1 Sindang</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html,body{
+    width:100%;
+    min-height:100%;
+}
+
+body{
+    background:#000;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+/* ================= BACKGROUND ================= */
+
+/* ================= BACKGROUND SLIDE KEREN ================= */
+
+.bg-slide{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100vh;
+    z-index:-2;
+    overflow:hidden;
+
+    opacity:0;
+    transform:scale(1.15);
+    transition:
+        opacity 1.5s ease,
+        transform 6s ease;
+}
+
+
+.bg-slide.active{
+
+    opacity:1;
+    transform:scale(1);
+
+}
+
+
+.bg-slide img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    animation:
+    kenburns 8s ease-in-out infinite;
+
+    filter:brightness(.85);
+
+}
+
+
+
+@keyframes kenburns{
+
+0%{
+
+    transform:scale(1);
+
+}
+
+
+50%{
+
+    transform:scale(1.12);
+
+}
+
+
+100%{
+
+    transform:scale(1);
+
+}
+
+}
+
+
+/* efek cahaya saat pindah */
+
+.bg-slide.active::after{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+linear-gradient(
+120deg,
+rgba(255,255,255,.15),
+transparent
+);
+
+animation:shine 2s;
+
+}
+
+
+@keyframes shine{
+
+from{
+
+opacity:1;
+
+}
+
+to{
+
+opacity:0;
+
+}
+
+}
+
+/* Overlay */
+
+.overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    z-index:-1;
+}
+
+/* ================= CONTAINER ================= */
+
+.container{
+    width:92%;
+    max-width:750px;
+    margin:auto;
+    padding:30px 15px 50px;
+    text-align:center;
+}
+
+/* ================= LOGO ================= */
+
+.logo img{
+    width:120px;
+    max-width:100%;
+    filter:drop-shadow(0 0 12px red);
+    margin-bottom:15px;
+}
+
+/* ================= TITLE ================= */
+
+.title{
+    font-size:50px;
+    font-weight:700;
+    text-shadow:0 0 10px red;
+}
+
+.subtitle{
+    margin-top:10px;
+    font-size:22px;
+    color:#ffd700;
+    font-weight:600;
+    animation:float 3s infinite;
+}
+
+/* ================= BOX ================= */
+
+.box,
+.kontak{
+    margin-top:25px;
+    padding:20px;
+    border-radius:18px;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,.2);
+    animation:fadeUp .8s;
+}
+
+.box h2,
+.kontak h3{
+    color:#ffd700;
+    margin-bottom:15px;
+}
+
+.box{
+    text-align:left;
+}
+
+.box ul{
+    padding-left:20px;
+}
+
+.box li{
+    margin:10px 0;
+    line-height:1.7;
+}
+
+/* ================= WA ================= */
+
+.wa-btn{
+    display:inline-block;
+    margin:8px;
+    padding:12px 18px;
+    border-radius:30px;
+    text-decoration:none;
+    color:#fff;
+    background:#25D366;
+    transition:.3s;
+    font-weight:600;
+}
+
+.wa-btn:hover{
+    transform:translateY(-3px);
+    background:#1ebc59;
+}
+/* ================= INSTAGRAM ================= */
+
+.ig-box{
+    margin-top:25px;
+    text-align:center;
+}
+
+.ig-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+
+    padding:12px 24px;
+    border-radius:30px;
+
+    background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4);
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+
+    box-shadow:0 0 15px rgba(221,42,123,.5);
+    transition:.3s;
+}
+
+.ig-btn:hover{
+    transform:translateY(-3px) scale(1.05);
+    box-shadow:0 0 20px rgba(221,42,123,.8);
+}
+.ig-btn{
+    animation:pulse 1.8s infinite;
+}
+
+@keyframes pulse{
+    0%{
+        transform:scale(1);
+        box-shadow:0 0 10px rgba(221,42,123,.5);
+    }
+    50%{
+        transform:scale(1.08);
+        box-shadow:0 0 25px rgba(221,42,123,.9);
+    }
+    100%{
+        transform:scale(1);
+        box-shadow:0 0 10px rgba(221,42,123,.5);
+    }
+}
+
+/* ================= MUSIC ================= */
+
+.music-btn{
+    position:fixed;
+    top:15px;
+    right:15px;
+    z-index:1000;
+
+    border:none;
+    border-radius:25px;
+    padding:10px 18px;
+
+    background:#e60000;
+    color:#fff;
+
+    cursor:pointer;
+
+    box-shadow:0 0 15px rgba(255,0,0,.6);
+}
+
+/* ================= EMOJI ================= */
+
+.emoji-area{
+    margin-top:30px;
+}
+
+.emoji-area h3{
+    margin-bottom:15px;
+}
+
+.emoji-btn{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+
+    width:80px;
+    height:80px;
+
+    margin:10px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(8px);
+
+    font-size:42px;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.emoji-btn:hover{
+    transform:scale(1.15);
+}
+
+.particle{
+    position:fixed;
+    pointer-events:none;
+    font-size:30px;
+    animation:boom 1.2s linear forwards;
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes float{
+
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-8px);
+}
+
+}
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(25px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+@keyframes boom{
+
+0%{
+opacity:1;
+transform:translate(0,0) scale(1);
+}
+
+100%{
+opacity:0;
+transform:translate(calc(var(--x)*170px),calc(var(--y)*170px)) rotate(720deg) scale(.3);
+}
+
+}
+/* LEDAKAN LOVE DI TOMBOL */
+
+.love-burst{
+    position:fixed;
+    z-index:10000;
+    pointer-events:none;
+
+    font-size:70px;
+
+    animation:burstLove .8s ease-out forwards;
+}
+
+
+@keyframes burstLove{
+
+0%{
+    transform:
+    translate(-50%,-50%)
+    scale(.2)
+    rotate(0deg);
+
+    opacity:1;
+}
+
+
+50%{
+
+    transform:
+    translate(-50%,-50%)
+    scale(1.8)
+    rotate(180deg);
+
+}
+
+
+100%{
+
+    transform:
+    translate(-50%,-50%)
+    scale(.3)
+    rotate(360deg);
+
+    opacity:0;
+
+}
+
+}
+/* TEXT LEDAKAN */
+
+.salam-explode{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%) scale(0);
+
+    z-index:9999;
+
+    color:#ffd700;
+    font-size:45px;
+    font-weight:700;
+    text-align:center;
+
+    text-shadow:
+    0 0 10px red,
+    0 0 25px red,
+    0 0 40px orange;
+
+    animation:salamPop 2.5s forwards;
+    pointer-events:none;
+}
+
+
+@keyframes salamPop{
+
+0%{
+    transform:translate(-50%,-50%) scale(0);
+    opacity:0;
+}
+
+30%{
+    transform:translate(-50%,-50%) scale(1.3);
+    opacity:1;
+}
+
+60%{
+    transform:translate(-50%,-50%) scale(1);
+}
+
+100%{
+    transform:translate(-50%,-50%) scale(1.5);
+    opacity:0;
+}
+}
+.salam-explode{
+
+position:fixed;
+
+top:50%;
+left:50%;
+
+transform:
+translate(-50%,-50%)
+scale(0)
+rotate(-10deg);
+
+z-index:10000;
+
+width:90%;
+
+color:#ffd700;
+
+font-size:45px;
+
+font-weight:800;
+
+text-align:center;
+
+
+text-shadow:
+
+0 0 10px white,
+0 0 20px red,
+0 0 40px orange,
+0 0 70px red;
+
+
+animation:textBoom 3s forwards;
+
+}
+
+
+@keyframes textBoom{
+
+
+0%{
+
+transform:
+translate(-50%,-50%)
+scale(0)
+rotate(-20deg);
+
+opacity:0;
+
+}
+
+
+40%{
+
+transform:
+translate(-50%,-50%)
+scale(1.4)
+rotate(5deg);
+
+opacity:1;
+
+}
+
+
+70%{
+
+transform:
+translate(-50%,-50%)
+scale(1);
+
+}
+
+
+100%{
+
+transform:
+translate(-50%,-50%)
+scale(1.2);
+
+opacity:0;
+
+}
+}
+.shake{
+animation:shake .5s;
+}
+
+
+@keyframes shake{
+
+0%,100%{
+transform:translateX(0);
+}
+
+25%{
+transform:translateX(-15px);
+}
+
+50%{
+transform:translateX(15px);
+}
+
+75%{
+transform:translateX(-10px);
+}
+}
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+.container{
+    width:95%;
+    padding:20px 12px 40px;
+}
+
+.logo img{
+    width:90px;
+}
+
+.title{
+    font-size:32px;
+}
+
+.subtitle{
+    font-size:18px;
+}
+
+.box,
+.kontak{
+    padding:15px;
+}
+
+.box li{
+    font-size:15px;
+}
+
+.wa-btn{
+    display:block;
+    width:100%;
+    margin:8px 0;
+}
+
+.emoji-btn{
+    width:65px;
+    height:65px;
+    font-size:34px;
+}
+
+.music-btn{
+    padding:8px 14px;
+    font-size:13px;
+}
+/* FLASH LEDAKAN */
+
+.flash-love{
+    position:fixed;
+    inset:0;
+    background:rgba(255,0,50,.35);
+    z-index:9997;
+    animation:flash .5s;
+    pointer-events:none;
+}
+
+
+@keyframes flash{
+
+0%{
+opacity:1;
+}
+
+100%{
+opacity:0;
+}
+
+}
+
+
+/* GELOMBANG */
+
+.wave-love{
+
+position:fixed;
+
+width:50px;
+height:50px;
+
+border-radius:50%;
+
+border:5px solid #ff1744;
+
+z-index:9998;
+
+animation:wave 1s forwards;
+
+pointer-events:none;
+
+}
+
+
+@keyframes wave{
+
+0%{
+transform:scale(0);
+opacity:1;
+}
+
+100%{
+transform:scale(15);
+opacity:0;
+}
+
+}
+
+/* HUJAN HATI */
+
+.rain-love{
+    position:fixed;
+    top:-50px;
+    z-index:9999;
+    pointer-events:none;
+    animation:rainFall linear forwards;
+}
+
+
+@keyframes rainFall{
+
+0%{
+    transform:
+    translateY(0)
+    rotate(0deg)
+    scale(1);
+
+    opacity:1;
+}
+
+
+100%{
+
+    transform:
+    translateY(110vh)
+    rotate(720deg)
+    scale(.5);
+
+    opacity:0;
+}
+
+}
+/* PARTIKEL LOVE */
+.particle{
+    position:fixed;
+    z-index:99999;
+    pointer-events:none;
+
+    font-size:35px;
+
+    animation:particleMove 1.5s ease-out forwards;
+}
+
+
+@keyframes particleMove{
+
+    0%{
+        opacity:1;
+        transform:
+        translate(0,0)
+        scale(1)
+        rotate(0deg);
+    }
+
+    100%{
+        opacity:0;
+
+        transform:
+        translate(
+            calc((var(--x)) * 250px),
+            calc((var(--y)) * 250px)
+        )
+        scale(.2)
+        rotate(720deg);
+    }
+
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- BACKGROUND -->
+<div class="bg-slide active">
+    <img src="naruto.jpeg">
+</div>
+
+<div class="bg-slide">
+    <img src="ling.jpeg">
+</div>
+
+<div class="bg-slide">
+    <img src="sasuke.jpeg">
+</div>
+
+<div class="bg-slide">
+    <img src="harit.jpeg">
+</div>
+
+<div class="overlay"></div>
+
+<!-- MUSIC -->
+<audio id="music" loop>
+    <source src="musik.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music-btn" onclick="toggleMusic()">▶ MUSIC</button>
+
+<!-- CONTENT -->
+<div class="container">
+
+    <div class="logo">
+        <img src="nesasin_logo.png.png">
+    </div>
+
+    <div class="title">SELAMAT DATANG</div>
+
+    <div class="subtitle">
+        SALAM MANIS<br>
+        SPMB SMP NEGERI 1 SINDANG
+    </div>
+
+    <!-- BOX -->
+    <div class="box">
+        <h2>KETENTUAN DAFTAR ULANG</h2>
+        <ul>
+            <li>1. Dilaksanakan 9 Juli 2026 pukul 08.00 WIB.</li>
+            <li>2. Membawa dokumen dalam MAP warna Merah.</li>
+            <li>3. Wajib didampingi orang tua/Wali.</li>
+            <li>4. Pakaian Putih-Merah (SD), sepatu hitam.</li>
+            <li>5. Membawa alat tulis.</li>
+        </ul>
+    </div>
+
+    <!-- KONTAK WA -->
+    <div class="kontak">
+        <h3>KONTAK PANITIA</h3>
+
+        <a class="wa-btn" href="https://wa.me/6285891447674" target="_blank">Bu Santi</a>
+        <a class="wa-btn" href="https://wa.me/6285721222450" target="_blank">Bu Atris</a>
+        <a class="wa-btn" href="https://wa.me/6285659840386" target="_blank">Pak Deden</a>
+        <a class="wa-btn" href="https://wa.me/6282119341837" target="_blank">Pak Eka</a>
+    <div class="ig-box">
+    <h3>📸 Ikuti Instagram Kami</h3>
+
+    <p class="ig-text">
+        👇 Klik tombol di bawah ini
+    </p>
+
+    <a class="ig-btn"
+       href="https://www.instagram.com/smpn1.sindang?igsh=YnV6czFocXM1Y2Z5"
+       target="_blank">
+    Follow Instagram
+    </a>
+</div>
+<!-- EMOJI INTERAKTIF -->
+<h3>Yuk Beri Dukungan ❤️</h3>
+
+<div class="emoji-btn" onclick="explode('❤️',this)">
+    ❤️
+</div>
+
+<div class="emoji-btn" onclick="explode('🎉',this)">
+    🎉
+</div>
+
+
+</div>
+
+<script>
+
+const music = document.getElementById("music");
+const musicBtn = document.querySelector(".music-btn");
+
+let play = false;
+
+
+/* ================= MUSIC ================= */
+
+function toggleMusic(){
+
+    if(play){
+
+        music.pause();
+        musicBtn.innerHTML="▶ MUSIC";
+
+    }else{
+
+        music.play()
+        .then(()=>{
+            musicBtn.innerHTML="⏸ MUSIC";
+        })
+        .catch(e=>{
+            console.log(e);
+        });
+
+    }
+
+    play = !play;
+
+}
+
+/* ================= LOVE EXPLOSION ================= */
+
+function explode(icon, btn){
+
+    const rect = btn.getBoundingClientRect();
+
+    // LOVE BESAR DI TENGAH TOMBOL
+    let burst = document.createElement("div");
+
+    burst.className = "love-burst";
+    burst.innerHTML = icon;
+
+    burst.style.left =
+    (rect.left + rect.width/2) + "px";
+
+    burst.style.top =
+    (rect.top + rect.height/2) + "px";
+
+    document.body.appendChild(burst);
+
+
+    setTimeout(()=>{
+        burst.remove();
+    },800);
+
+
+
+    // FLASH
+    let flash=document.createElement("div");
+
+    flash.className="flash-love";
+
+    document.body.appendChild(flash);
+
+    setTimeout(()=>{
+        flash.remove();
+    },500);
+
+
+
+    // GELOMBANG LOVE
+    let wave=document.createElement("div");
+
+    wave.className="wave-love";
+
+    wave.style.left =
+    (rect.left + rect.width/2) + "px";
+
+    wave.style.top =
+    (rect.top + rect.height/2) + "px";
+
+
+    document.body.appendChild(wave);
+
+
+    setTimeout(()=>{
+        wave.remove();
+    },1000);
+
+
+
+    // TEXT MUNCUL
+    let text=document.createElement("div");
+
+    text.className="salam-explode";
+
+    text.innerHTML=
+    "❤️ SALAM MANIS ❤️<br>"+
+    "DI TUNGGU DI SEKOLAH";
+
+
+    document.body.appendChild(text);
+
+
+    setTimeout(()=>{
+        text.remove();
+    },3000);
+
+
+
+    // GETAR
+    document.body.classList.add("shake");
+
+    setTimeout(()=>{
+        document.body.classList.remove("shake");
+    },500);
+
+
+
+    // PARTIKEL LOVE TERBANG
+    // PARTIKEL LOVE TERBANG
+for(let i=0;i<80;i++){
+
+    let p=document.createElement("div");
+
+    p.className="particle";
+
+    p.innerHTML="❤️";
+
+
+    p.style.left =
+    (rect.left + rect.width/2) + "px";
+
+
+    p.style.top =
+    (rect.top + rect.height/2) + "px";
+
+
+    p.style.setProperty(
+        "--x",
+        Math.random()*2-1
+    );
+
+
+    p.style.setProperty(
+        "--y",
+        Math.random()*2-1
+    );
+
+
+    p.style.fontSize =
+    (25 + Math.random()*40)+"px";
+
+
+    document.body.appendChild(p);
+
+
+    setTimeout(()=>{
+        p.remove();
+    },1500);
+
+}
+
+
+    // HUJAN LOVE
+    hujanLove();
+
+
+
+    // ANIMASI BUTTON
+    btn.animate(
+    [
+        {
+            transform:"scale(1)"
+        },
+        {
+            transform:"scale(1.5)"
+        },
+        {
+            transform:"scale(1)"
+        }
+    ],
+    {
+        duration:400
+    });
+
+}
+
+
+
+/* ================= HUJAN LOVE ================= */
+
+function hujanLove(){
+
+    for(let i=0;i<50;i++){
+
+        let love=document.createElement("div");
+
+        love.className="rain-love";
+
+        love.innerHTML="❤️";
+
+
+        love.style.left =
+        Math.random()*100+"vw";
+
+
+        love.style.fontSize =
+        (20+Math.random()*35)+"px";
+
+
+        love.style.animationDuration =
+        (3+Math.random()*4)+"s";
+
+
+        document.body.appendChild(love);
+
+
+        setTimeout(()=>{
+            love.remove();
+        },7000);
+
+    }
+
+}
+
+
+
+
+/* ================= BACKGROUND SLIDE ================= */
+
+
+const slides=document.querySelectorAll(".bg-slide");
+
+let slideIndex=0;
+
+
+// tampilkan foto pertama
+
+slides[0].classList.add("active");
+
+
+function gantiSlide(){
+
+
+    slides[slideIndex].classList.remove("active");
+
+
+    slideIndex++;
+
+
+    if(slideIndex >= slides.length){
+        slideIndex=0;
+    }
+
+
+    slides[slideIndex].classList.add("active");
+
+}
+
+
+setInterval(gantiSlide,5000);
+function hujanLove(){
+
+    for(let i=0;i<40;i++){
+
+        let love=document.createElement("div");
+
+        love.className="rain-love";
+
+        love.innerHTML="❤️";
+
+
+        love.style.left=
+        Math.random()*100+"vw";
+
+
+        love.style.fontSize=
+        (20+Math.random()*35)+"px";
+
+
+        love.style.animationDuration=
+        (3+Math.random()*4)+"s";
+
+
+        document.body.appendChild(love);
+
+
+        setTimeout(()=>{
+
+            love.remove();
+
+        },7000);
+
+    }
+function hujanLove(){
+
+    for(let i=0;i<30;i++){
+
+        let love=document.createElement("div");
+
+        love.className="rain-love";
+
+        love.innerHTML="❤️";
+
+
+        love.style.left =
+        Math.random()*100+"vw";
+
+
+        love.style.fontSize =
+        (20+Math.random()*30)+"px";
+
+
+        love.style.animationDuration =
+        (3+Math.random()*3)+"s";
+
+
+        document.body.appendChild(love);
+
+
+        setTimeout(()=>{
+            love.remove();
+        },6000);
+
+    }
+
+}
+}
+
+
+</script>
+</body>
+</html>
